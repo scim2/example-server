@@ -3,7 +3,6 @@ package server
 import (
 	"context"
 	test "github.com/di-wu/scim-test-suite"
-	"github.com/stretchr/testify/suite"
 	"log"
 	"net/http"
 	"sync"
@@ -32,7 +31,7 @@ func TestServer(t *testing.T) {
 
 	testSuite := new(test.SCIMTestSuite)
 	testSuite.BaseURL("http://localhost:3000")
-	suite.Run(t, testSuite)
+	// suite.Run(t, testSuite)
 
 	if err := server.Shutdown(context.TODO()); err != nil {
 		panic(err)
