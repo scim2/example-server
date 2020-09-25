@@ -2,7 +2,7 @@ package server
 
 import (
 	"context"
-	test "github.com/di-wu/scim-test-suite"
+	test "github.com/scim2/test-suite"
 	"log"
 	"net/http"
 	"sync"
