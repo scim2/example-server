@@ -19,6 +19,12 @@ github.com/scim2/test-suite v0.0.0-20200925104701-3d7ffc4b47fd h1:+EvFQwbZ/ueZm2
 github.com/scim2/test-suite v0.0.0-20200925104701-3d7ffc4b47fd/go.mod h1:rd+l9o16+UY00dlE+qDS0DwFxEQD1QGQh4PG2XNvdLc=
 github.com/scim2/tools v0.0.0-20200925173320-559a9b08fe37 h1:9aLufRk4OVj4qyl7zoowOrqgKvXTv4QI/VqBC+iAQlw=
 github.com/scim2/tools v0.0.0-20200925173320-559a9b08fe37/go.mod h1:1LAJxcaJAGEfSF7NIMh07MYHQshU1KMOb+lsk43LL8o=
+github.com/scim2/tools v0.0.0-20201004132516-ac35493e15de h1:c31jTpsGdvK0l343oJ/NZdTMAR1QHKXljYKW6Bn9zjk=
+github.com/scim2/tools/schema v0.0.0-20201003164346-398b501f3863/go.mod h1:40hRS0VkXo6o+PusU1B78y/RthyJhRPnjmPpLcF/6as=
+github.com/scim2/tools/schema v0.0.0-20201004132516-ac35493e15de h1:uYh3zu5v/C68TYIs+apCD+g4YmtCBDtfvrwQHu+Eq6E=
+github.com/scim2/tools/schema v0.0.0-20201004132516-ac35493e15de/go.mod h1:40hRS0VkXo6o+PusU1B78y/RthyJhRPnjmPpLcF/6as=
+github.com/scim2/tools/structs v0.0.0-20201004132516-ac35493e15de h1:+KTleJ8SDs25DOe+qu7masK+nY/7ftkck9kl1o3gfzY=
+github.com/scim2/tools/structs v0.0.0-20201004132516-ac35493e15de/go.mod h1:vNgtTyjEqcDUA1CJ6Itcq5m3ILVSSDL69UmnBwCw3nk=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.6.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.6.1 h1:hDPOHmpOpP40lSULcqw7IrRb/u7w6RpDC9399XyoNd0=

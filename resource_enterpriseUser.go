@@ -3,12 +3,14 @@ package server
 
 // Enterprise User
 type EnterpriseUser struct {
-    EmployeeNumber string
     CostCenter     string
-    Organization   string
-    Division       string
     Department     string
+    Division       string
+    EmployeeNumber string
+    ExternalId     string
+    Id             string
     Manager        EnterpriseUserManager
+    Organization   string
 }
 
 // The User's manager. A complex type that optionally allows service providers to represent organizational hierarchy by
