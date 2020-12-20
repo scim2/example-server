@@ -6,6 +6,8 @@ import (
 	"github.com/elimity-com/scim/schema"
 )
 
+//go:generate go run ./generate_resources/main.go
+
 var Server = scim.Server{
 	Config: scim.ServiceProviderConfig{
 		DocumentationURI: optional.NewString("https://example.com/scim/docs"),
