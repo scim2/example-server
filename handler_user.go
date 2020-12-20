@@ -31,19 +31,19 @@ func (u usersResourceHandler) Create(r *http.Request, attributes scim.ResourceAt
 	}
 
 	// Create a unique identifier.
-	user.Id = uuid.New().String()
+	user.ID = uuid.New().String()
 
 	// Meta data.
 	now := time.Now()
 	meta := scim.Meta{
 		Created:      &now,
 		LastModified: &now,
-		Version:      fmt.Sprintf("v%s", user.Id),
+		Version:      fmt.Sprintf("v%s", user.ID),
 	}
 
 	// Write to database.
 	if err := u.db.Update(func(tx *mdb.TX) error {
-		tx.Set(user.Id, mdb.Instance{
+		tx.Set(user.ID, mdb.Instance{
 			Value: user,
 			Meta:  meta,
 		})
@@ -119,7 +119,7 @@ func (u usersResourceHandler) Replace(r *http.Request, id string, attributes sci
 		}
 
 		// Take over the identifier.
-		user.Id = previous.Value.(User).Id
+		user.ID = previous.Value.(User).ID
 
 		// Update meta.
 		now := time.Now()
@@ -159,7 +159,7 @@ func (u usersResourceHandler) Patch(r *http.Request, id string, request scim.Pat
 
 func attr2User(attributes scim.ResourceAttributes) (User, error) {
 	var user User
-	if err := marshal.Unmarshal(rAttr2Map(attributes), &user); err != nil {
+	if err := marshal.Unmarshal(attributes, &user); err != nil {
 		return User{}, err
 	}
 	return user, nil
@@ -171,11 +171,11 @@ func user2Resource(user User, meta scim.Meta) (scim.Resource, error) {
 		return scim.Resource{}, err
 	}
 	eID := optional.String{}
-	if user.ExternalId != "" {
-		eID = optional.NewString(user.ExternalId)
+	if user.ExternalID != "" {
+		eID = optional.NewString(user.ExternalID)
 	}
 	return scim.Resource{
-		ID:         user.Id,
+		ID:         user.ID,
 		ExternalID: eID,
 		Attributes: attributes,
 		Meta:       meta,

@@ -8,14 +8,14 @@ type User struct {
     DisplayName       string
     Emails            []UserEmail
     Entitlements      []UserEntitlement
-    ExternalId        string
+    ExternalID        string
     Groups            []UserGroup
-    Id                string
+    ID                string
     Ims               []UserIm
     Locale            string
     Name              UserName
     NickName          string
-    Password          string
+    PassworD          string
     PhoneNumbers      []UserPhoneNumber
     Photos            []UserPhoto
     PreferredLanguage string
@@ -31,7 +31,7 @@ type User struct {
 // A physical mailing address for this User. Canonical type values of 'work', 'home', and 'other'. This attribute is a
 // type with the following sub-attributes.
 type UserAddress struct {
-    Formatted     string
+    FormatteD     string
     StreetAddress string
     Locality      string
     Region        string
@@ -78,7 +78,7 @@ type UserIm struct {
 // both variants are returned, they SHOULD be describing the same name, with the formatted name indicating how the
 // attributes should be combined.
 type UserName struct {
-    Formatted       string
+    FormatteD       string
     FamilyName      string
     GivenName       string
     MiddleName      string

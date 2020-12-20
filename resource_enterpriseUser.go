@@ -7,8 +7,8 @@ type EnterpriseUser struct {
     Department     string
     Division       string
     EmployeeNumber string
-    ExternalId     string
-    Id             string
+    ExternalID     string
+    ID             string
     Manager        EnterpriseUserManager
     Organization   string
 }

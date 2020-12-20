@@ -4,8 +4,8 @@ package server
 // Group
 type Group struct {
     DisplayName string
-    ExternalId  string
-    Id          string
+    ExternalID  string
+    ID          string
     Members     []GroupMember
 }
 
