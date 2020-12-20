@@ -8,8 +8,8 @@ import (
 	"os"
 
 	core "github.com/elimity-com/scim/schema"
+	gen "github.com/scim2/tools/generate"
 	"github.com/scim2/tools/schema"
-	gen "github.com/scim2/tools/structs/generate"
 )
 
 func main() {
