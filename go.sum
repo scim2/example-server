@@ -8,9 +8,9 @@ github.com/scim2/filter-parser v1.0.0 h1:cZsIcTt2wj/pv75WyO65usXfOqbU5z4zOwzPgMS
 github.com/scim2/filter-parser v1.0.0/go.mod h1:ybpX+9rf7wMUVX53VD5V0NT3jhCpJEAC4bJruwAmwVM=
 github.com/scim2/tools/attributes v1.0.0 h1:OGdxnOnay9vSuZhsQB4BFJDXDmo4X8lDg4q++cEIiKg=
 github.com/scim2/tools/attributes v1.0.0/go.mod h1:HirRtL4gFwnZAjZbyg33fA0/YAZKyExiTR6ewHhMs9A=
-github.com/scim2/tools/generate v1.0.1 h1:8pTZ3dVlPif118TO5Rgbgp+0wDeZ03MV7Q3dfXe6Eng=
-github.com/scim2/tools/generate v1.0.1/go.mod h1:d/bDu7e37VZhmyv8azcbiVQ5M4eXIBQRV6qXAMqZ0yg=
-github.com/scim2/tools/marshal v1.0.1 h1:vp65FLBhyCVge2jNdK3H10e8QK4RCNdCN7GAdudFrSc=
-github.com/scim2/tools/marshal v1.0.1/go.mod h1:FVSaX9azZzJn2Wi75vHqeBorvEYyGGpStFiTlBlPmpQ=
+github.com/scim2/tools/generate v0.0.0-20201220200345-054f1027abbb h1:B6EG/6zxuchOxNhQ6Gtu6+yZpqGclMFzlX+qtuDTw/M=
+github.com/scim2/tools/generate v0.0.0-20201220200345-054f1027abbb/go.mod h1:d/bDu7e37VZhmyv8azcbiVQ5M4eXIBQRV6qXAMqZ0yg=
+github.com/scim2/tools/marshal v1.1.0 h1:LZZuDPCToxP/kZyeh67iwZVvA+y8W936umhYzceheBw=
+github.com/scim2/tools/marshal v1.1.0/go.mod h1:FVSaX9azZzJn2Wi75vHqeBorvEYyGGpStFiTlBlPmpQ=
 github.com/scim2/tools/schema v1.0.0 h1:BAz6Sj2dzWPyI4CVE/Qg/lHFJw0fthVERcl+aozHRlE=
 github.com/scim2/tools/schema v1.0.0/go.mod h1:40hRS0VkXo6o+PusU1B78y/RthyJhRPnjmPpLcF/6as=

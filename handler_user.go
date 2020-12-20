@@ -5,12 +5,25 @@ import (
 	"github.com/elimity-com/scim"
 	"github.com/elimity-com/scim/errors"
 	"github.com/elimity-com/scim/optional"
+	"github.com/elimity-com/scim/schema"
 	"github.com/google/uuid"
 	"github.com/scim2/example-server/mdb"
 	"github.com/scim2/tools/marshal"
 	"net/http"
 	"time"
 )
+
+var userType = scim.ResourceType{
+	ID:          optional.NewString("User"),
+	Name:        "User",
+	Endpoint:    "/Users",
+	Description: optional.NewString("User Account"),
+	Schema:      schema.CoreUserSchema(),
+	SchemaExtensions: []scim.SchemaExtension{
+		{Schema: schema.ExtensionEnterpriseUser()},
+	},
+	Handler: newUsersResourceHandler(),
+}
 
 type usersResourceHandler struct {
 	db *mdb.DB

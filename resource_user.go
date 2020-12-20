@@ -15,7 +15,7 @@ type User struct {
     Locale            string
     Name              UserName
     NickName          string
-    PassworD          string
+    Password          string
     PhoneNumbers      []UserPhoneNumber
     Photos            []UserPhoto
     PreferredLanguage string
@@ -26,12 +26,14 @@ type User struct {
     UserName          string
     UserType          string
     X509Certificates  []UserX509Certificate
+
+    EnterpriseUser EnterpriseUserExtension `scim:"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"`
 }
 
 // A physical mailing address for this User. Canonical type values of 'work', 'home', and 'other'. This attribute is a
 // type with the following sub-attributes.
 type UserAddress struct {
-    FormatteD     string
+    Formatted     string
     StreetAddress string
     Locality      string
     Region        string
@@ -78,7 +80,7 @@ type UserIm struct {
 // both variants are returned, they SHOULD be describing the same name, with the formatted name indicating how the
 // attributes should be combined.
 type UserName struct {
-    FormatteD       string
+    Formatted       string
     FamilyName      string
     GivenName       string
     MiddleName      string
@@ -117,4 +119,22 @@ type UserX509Certificate struct {
     Display string
     Type    string
     Primary bool
+}
+
+// Enterprise User
+type EnterpriseUserExtension struct {
+    CostCenter     string
+    Department     string
+    Division       string
+    EmployeeNumber string
+    Manager        EnterpriseUserExtensionManager
+    Organization   string
+}
+
+// The User's manager. A complex type that optionally allows service providers to represent organizational hierarchy by
+// the 'id' attribute of another User.
+type EnterpriseUserExtensionManager struct {
+    Value       string
+    Ref         string
+    DisplayName string
 }

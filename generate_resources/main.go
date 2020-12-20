@@ -24,14 +24,13 @@ func main() {
 	e, _ := core.ExtensionEnterpriseUser().MarshalJSON()
 	_ = ioutil.WriteFile("testdata/enterprise_user.json", e, 0644)
 
-	generate("testdata/user.json", "resource_user.go", "server")
+	generate("testdata/user.json", "resource_user.go", "server", "testdata/enterprise_user.json")
 	generate("testdata/group.json", "resource_group.go", "server")
-	generate("testdata/enterprise_user.json", "resource_enterpriseUser.go", "server")
 
 	_ = os.RemoveAll("testdata")
 }
 
-func generate(path, out, pkgName string) {
+func generate(path, out, pkgName string, extensionPaths ...string) {
 	raw, err := ioutil.ReadFile(path)
 	if err != nil {
 		panic(err)
@@ -42,7 +41,19 @@ func generate(path, out, pkgName string) {
 		panic(err)
 	}
 
-	g, err := gen.NewStructGenerator(s)
+	var e []schema.ReferenceSchema
+	for _, path := range extensionPaths {
+		raw, err := ioutil.ReadFile(path)
+		if err != nil {
+			panic(err)
+		}
+		var extension schema.ReferenceSchema
+		if err := json.Unmarshal(raw, &extension); err != nil {
+			panic(err)
+		}
+		e = append(e, extension)
+	}
+	g, err := gen.NewStructGenerator(s, e...)
 	if err != nil {
 		panic(err)
 	}
