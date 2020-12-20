@@ -8,9 +8,15 @@ import (
 func ExampleNew() {
 	db := mdb.New()
 	_ = db.Update(func(tx *mdb.TX) error {
-		tx.Set("key1", "hello")
-		tx.Set("key2", "world")
-		tx.Set("key3", "!")
+		tx.Set("key1", mdb.Instance{
+			Value: "hello",
+		})
+		tx.Set("key2", mdb.Instance{
+			Value: "world",
+		})
+		tx.Set("key3", mdb.Instance{
+			Value: "!",
+		})
 		return nil
 	})
 	_ = db.View(func(tx *mdb.TX) error {
@@ -21,7 +27,7 @@ func ExampleNew() {
 	})
 
 	// Output:
-	// hello true
-	// world true
-	// ! true
+	// {hello {<nil> <nil> }} true
+	// {world {<nil> <nil> }} true
+	// {! {<nil> <nil> }} true
 }
