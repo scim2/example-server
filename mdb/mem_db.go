@@ -1,6 +1,7 @@
 package mdb
 
 import (
+	"github.com/elimity-com/scim"
 	"sync"
 )
 
@@ -9,14 +10,20 @@ import (
 // WARNING: DO NOT USE THIS IN PRODUCTION.
 type DB struct {
 	lock *sync.RWMutex // mutex to lock our data.
-	data map[string]interface{}
+	data map[string]Instance
+}
+
+// Instance is a wrapper for a db value instance and their corresponding meta data.
+type Instance struct {
+	Value interface{}
+	Meta  scim.Meta
 }
 
 // New returns a new in memory DB.
 func New() *DB {
 	return &DB{
 		lock: new(sync.RWMutex),
-		data: make(map[string]interface{}),
+		data: make(map[string]Instance),
 	}
 }
 
@@ -26,16 +33,39 @@ type TX struct {
 	writable bool // Whether the transaction is for reading or writing.
 }
 
-func (tx *TX) Set(key, value string) {
+func (tx *TX) Set(key string, value Instance) {
 	if !tx.writable {
 		panic("Called tx.Set() on an unwritable transaction.")
 	}
 	tx.db.data[key] = value
 }
 
-func (tx *TX) Get(key string) (interface{}, bool) {
+func (tx *TX) Delete(key string) bool {
+	if !tx.writable {
+		panic("Called tx.Delete() on an unwritable transaction.")
+	}
+	if _, ok := tx.db.data[key]; !ok {
+		return false
+	}
+	delete(tx.db.data, key)
+	return true
+}
+
+func (tx *TX) Get(key string) (Instance, bool) {
 	v, ok := tx.db.data[key]
 	return v, ok
+}
+
+func (tx *TX) GetAll() []Instance {
+	var (
+		i         = 0
+		instances = make([]Instance, len(tx.db.data))
+	)
+	for _, v := range tx.db.data {
+		instances[i] = v
+		i++
+	}
+	return instances
 }
 
 // Begin opens a TX.
