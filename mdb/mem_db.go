@@ -2,6 +2,7 @@ package mdb
 
 import (
 	"github.com/elimity-com/scim"
+	"sort"
 	"sync"
 )
 
@@ -57,12 +58,18 @@ func (tx *TX) Get(key string) (Instance, bool) {
 }
 
 func (tx *TX) GetAll() []Instance {
+	keys := make([]string, 0)
+	for k, _ := range tx.db.data {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+
 	var (
 		i         = 0
 		instances = make([]Instance, len(tx.db.data))
 	)
-	for _, v := range tx.db.data {
-		instances[i] = v
+	for _, v := range keys {
+		instances[i] = tx.db.data[v]
 		i++
 	}
 	return instances
