@@ -1,3 +1,7 @@
+// +build ignore
+
+// This program generates the resource_*.go files that contain the structures
+// for every SCIM resource type.
 package main
 
 import (

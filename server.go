@@ -5,7 +5,7 @@ import (
 	"github.com/elimity-com/scim/optional"
 )
 
-//go:generate go run ./generate_resources/main.go
+//go:generate go run gen.go
 
 var server = scim.Server{
 	Config: scim.ServiceProviderConfig{
